@@ -6,22 +6,45 @@ public class TicTacToe{
 public static int[][] ticbox;
 	public static int win(int [][]tic) {
 		//check all rows
+		int p=0,q=0;
 		//loop through rows from 0 to 3 and check if all the 3 places have same marks
- 		
-		
+		for(int i=0;i<3;i++) {
+		if(tic[i][0] == 1 && tic[i][1] == 1 && tic[i][2] == 1) {
+			p=1;
+		}
+		else if(tic[i][0] == 2 && tic[i][1] == 2 && tic[i][2] == 2) {
+			q=1;
+		}
+		}
+		for(int i=0;i<3;i++) {
+			if(tic[i][1] == 1 && tic[i][1] == 1 && tic[2][i] == 1) {
+				p=1;
+			}
+			else if(tic[0][i] == 2 && tic[i][1] == 2 && tic[2][i] == 2) {
+				q=1;
+ 			
+			}
+			
+		if((tic[0][0] == 1 && tic[1][1] == 1 && tic[2][2] == 1) || (tic[0][2] == 1 && tic[1][1] == 1 && tic[2][0] == 1)) {
+			p=1;
+		}
+		else if((tic[0][0] == 2 && tic[1][1] == 2 && tic[2][2] == 2) || (tic[0][2] == 2 && tic[1][1] == 2 && tic[2][0] == 2)) {
+			q=1;
+		}
 		//check all cols
 		//loop through columns from 0 to 3 and check if all the 3 places have same marks
- 		
+
 		//check both diagonals 
+				
+			}	
 		
-		
-		
-		//write your code here !!!
-		
-		
-		
-		return 0;
-		
+ 		if(p == 1) 
+ 			return 1;
+ 			else if(q == 1) 
+ 			return 2;
+ 				else
+
+            return 0;
 	}
 	
 	public static void printBox(int [][]tic) {
@@ -37,13 +60,32 @@ public static int[][] ticbox;
 		//check if a2 is between 0 & 3
 		//check if the selected box is empty ie, already not marked by other player
 		//if all checks passed return true.
+		if(a1<3 && a2<3)
+		{
+			if(tic[a1][a2] == 0) {
+				return true;
+			}
+				else {
+					return false;
+			}
+		}
 		
-		
+	
+		boolean validate = false;
+
 		//Write your code here !!!
-		
-		
-		return false;
+		for(int i=0;i<3;i++) {
+			for(int j=0;j<3;j++) {
+				if(tic[i][j]=='-') {
+					validate=false;
+				}
+			}
+		}
+			
+		return validate;
+	
 	}
+	
 	public static void main(String args[]) {
 		
 		ticbox = new int[3][3];
